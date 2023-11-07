@@ -1,0 +1,6 @@
+steps:
+  - label: "A simple echo!"
+    expeditor:
+      executor:
+        docker:
+    command: echo "Hello from train-k8s-container!"
