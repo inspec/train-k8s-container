@@ -29,7 +29,7 @@ github:
 
 release_branches:
   - main:
-      # version_constraint: 0.*
+      version_constraint: 0.*
 
 pipelines:
   - verify:
@@ -43,23 +43,22 @@ changelog:
   rollup_header: Changes not yet released to rubygems.org
 
 
-# TODO: Uncomment when ready to implement the workload
-# subscriptions:
-#   # These actions are taken, in order they are specified, anytime a Pull Request is merged.
-#   - workload: pull_request_merged:{{github_repo}}:{{release_branch}}:*
-#     actions:
-#       - built_in:bump_version:
-#           ignore_labels:
-#             - "Expeditor: Skip Version Bump"
-#             - "Expeditor: Skip All"
-#       - bash:.expeditor/update_version.sh:
-#           only_if: built_in:bump_version
-#       - built_in:update_changelog:
-#           ignore_labels:
-#             - "Expeditor: Skip Changelog"
-#             - "Expeditor: Skip All"
-#       - built_in:build_gem:
-#           only_if: built_in:bump_version
+subscriptions:
+  # These actions are taken, in order they are specified, anytime a Pull Request is merged.
+  - workload: pull_request_merged:{{github_repo}}:{{release_branch}}:*
+    actions:
+      - built_in:bump_version:
+          ignore_labels:
+            - "Expeditor: Skip Version Bump"
+            - "Expeditor: Skip All"
+      # - bash:.expeditor/update_version.sh:
+      #     only_if: built_in:bump_version
+      - built_in:update_changelog:
+          ignore_labels:
+            - "Expeditor: Skip Changelog"
+            - "Expeditor: Skip All"
+      - built_in:build_gem:
+          only_if: built_in:bump_version
 
   # TODO: Uncomment/Modify when ready to promote
   # - workload: project_promoted:{{agent_id}}:*
