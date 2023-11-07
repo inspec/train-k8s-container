@@ -1,0 +1,8 @@
+module Train
+  module K8s
+    module Container
+      VERSION: String
+      # See the writing guide of rbs: https://github.com/ruby/rbs#guides
+    end
+  end
+end
