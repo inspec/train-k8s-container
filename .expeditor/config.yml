@@ -10,9 +10,8 @@ slack:
 
 # https://expeditor.chef.io/docs/integrations/rubygems/
 # This publish is triggered by the `built_in:publish_rubygems` artifact_action.
-# TODO: Uncomment when ready to publish to rubygems.org
-# rubygems:
-#   - train-k8s-container
+rubygems:
+  - train-k8s-container
 
 # https://expeditor.chef.io/docs/integrations/github/
 github:
