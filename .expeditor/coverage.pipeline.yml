@@ -1,0 +1,19 @@
+---
+expeditor:
+  defaults:
+    buildkite:
+      timeout_in_minutes: 45
+      retry:
+        automatic:
+          limit: 1
+
+steps:
+
+  - label: coverage-pipeline-with-ruby-3.0
+    command:
+      - /workdir/.expeditor/buildkite/verify.sh
+    expeditor:
+      secrets: true
+      executor:
+        docker:
+          image: ruby:3.0

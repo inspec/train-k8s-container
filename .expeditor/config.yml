@@ -34,9 +34,9 @@ pipelines:
   - verify:
       description: Pull Request validation tests
       # public: true # Uncomment to make this pipeline public
-  # TODO: Uncomment when ready to implement the coverage pipeline
-  # - coverage:
-  #     description: Generate test coverage report
+  - coverage:
+      description: Generate test coverage report
+      trigger: pull_request
 
 changelog:
   rollup_header: Changes not yet released to rubygems.org
