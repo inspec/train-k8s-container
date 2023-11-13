@@ -11,7 +11,7 @@ steps:
 
   - label: coverage-pipeline-with-ruby-3.0
     command:
-      - /workdir/.expeditor/buildkite/verify.sh
+      - CI_ENABLE_COVERAGE=1 RAKE_TASK=test:unit /workdir/.expeditor/buildkite/verify.sh # TODO: Update command as needed
     expeditor:
       secrets: true
       executor:
