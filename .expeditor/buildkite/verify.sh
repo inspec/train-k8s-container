@@ -12,7 +12,7 @@ unzip -o $VAULT_HOME/vault.zip -d $VAULT_HOME
 if [ -n "${CI_ENABLE_COVERAGE:-}" ]; then
   echo "--- fetching Sonar token from vault"
   # TODO: Update the path to the key within the key-value store `secret/trains-k8s-container/sonar` is just a dummy placeholder
-  export SONAR_TOKEN=$($VAULT_HOME/vault kv get -field token secret/trains-k8s-container/sonar)
+  export SONAR_TOKEN=$($VAULT_HOME/vault kv get -field token secret/inspec/train-k8s-container/sonar)
 
   if [ -n "${SONAR_TOKEN:-}" ]; then
     echo "  ++ SONAR_TOKEN set successfully"
