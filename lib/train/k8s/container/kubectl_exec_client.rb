@@ -20,16 +20,12 @@ module Train
           instruction = build_instruction(command)
           shell = Mixlib::ShellOut.new(instruction)
           res = shell.run_command
-          Train::Extras::CommandResult.new(res.stdout, res.stderr, res.exitstatus)
+          Train::Extras::CommandResult.new(res.stdout, res.stderr, res.exit_status)
         rescue Errno::ENOENT => _e
           Train::Extras::CommandResult.new("", "", 1)
         end
 
         private
-
-        def shell
-          @shell ||= Mixlib::ShellOut.new(instruction)
-        end
 
         def build_instruction(command)
           ["kubectl exec"].tap do |arr|
