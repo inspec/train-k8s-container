@@ -4,7 +4,7 @@ module Train
   module K8s
     module Container
       module Platform
-        PLATFORM_NAME = "k8s_container".freeze
+        PLATFORM_NAME = "k8s-container"
 
         def platform
           Train::Platforms.name(PLATFORM_NAME).in_family("os")
