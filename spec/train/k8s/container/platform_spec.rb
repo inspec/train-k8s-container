@@ -6,7 +6,7 @@ RSpec.describe Train::K8s::Container::Platform do
   end
 
   it "its platform family should be `cloud`" do
-    expect(train.connection.platform.family).to eq("cloud")
+    expect(train.connection.platform.family).to eq("os")
   end
 end
 

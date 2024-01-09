@@ -5,7 +5,7 @@ module Train
     module Container
       class Transport < Train.plugin(1)
 
-        name "k8s-container"
+        name "k8s_container"
         option :kubeconfig, default: ENV["KUBECONFIG"] || "~/.kube/config"
         option :pod, default: nil
         option :container_name, default: nil

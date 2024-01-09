@@ -4,10 +4,11 @@ module Train
   module K8s
     module Container
       module Platform
+        PLATFORM_NAME = "k8s_container".freeze
 
         def platform
-          Train::Platforms.name("k8s").in_family("cloud")
-          force_platform!("k8s_container", release: Train::K8s::Container::VERSION)
+          Train::Platforms.name(PLATFORM_NAME).in_family("os")
+          force_platform!(PLATFORM_NAME, release: Train::K8s::Container::VERSION)
         end
       end
     end
