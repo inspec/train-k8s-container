@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative "../../../spec_helper"
 
 RSpec.describe Train::K8s::Container::Platform do
   it "its platform name should be `k8s_container`" do
