@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require "train"
 module Train
   module K8s
     module Container
