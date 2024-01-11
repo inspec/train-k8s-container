@@ -2,7 +2,6 @@
 
 require "train"
 require "train/k8s/container"
-require "byebug"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
