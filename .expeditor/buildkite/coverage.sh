@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "--- This is the verify pipeline for train-k8s-container"
+echo "--- This is the coverage pipeline for train-k8s-container"
 
 # Fetch tokens from vault ASAP so that long-running tests don't cause our vault token to expire
 echo "--- installing vault"
