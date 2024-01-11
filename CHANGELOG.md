@@ -1,16 +1,17 @@
 # Changelog
 
-<!-- latest_release 0.0.6 -->
-## [v0.0.6](https://github.com/inspec/train-k8s-container/tree/v0.0.6) (2024-01-09)
+<!-- latest_release 0.0.7 -->
+## [v0.0.7](https://github.com/inspec/train-k8s-container/tree/v0.0.7) (2024-01-11)
 
 #### Merged Pull Requests
-- Add Version bumper [#11](https://github.com/inspec/train-k8s-container/pull/11) ([sathish-progress](https://github.com/sathish-progress))
+- Updates verify pipeline and coverage pipeline [#12](https://github.com/inspec/train-k8s-container/pull/12) ([Vasu1105](https://github.com/Vasu1105))
 <!-- latest_release -->
 
 <!-- release_rollup -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- Updates verify pipeline and coverage pipeline [#12](https://github.com/inspec/train-k8s-container/pull/12) ([Vasu1105](https://github.com/Vasu1105)) <!-- 0.0.7 -->
 - Add Version bumper [#11](https://github.com/inspec/train-k8s-container/pull/11) ([sathish-progress](https://github.com/sathish-progress)) <!-- 0.0.6 -->
 - Set license to Apache v 2.0 [#8](https://github.com/inspec/train-k8s-container/pull/8) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 0.0.5 -->
 - CHEF-8269: Configures sonarqube for code coverage analysis [#7](https://github.com/inspec/train-k8s-container/pull/7) ([Vasu1105](https://github.com/Vasu1105)) <!-- 0.0.4 -->
