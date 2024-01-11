@@ -26,10 +26,6 @@ github:
   major_bump_labels:
     - "Expeditor: Bump Version Major"
 
-release_branches:
-  - main:
-      version_constraint: 0.*
-
 pipelines:
   - verify:
       description: Pull Request validation tests
@@ -50,8 +46,8 @@ subscriptions:
           ignore_labels:
             - "Expeditor: Skip Version Bump"
             - "Expeditor: Skip All"
-      # - bash:.expeditor/update_version.sh:
-      #     only_if: built_in:bump_version
+      - bash:.expeditor/update_version.sh:
+           only_if: built_in:bump_version
       - built_in:update_changelog:
           ignore_labels:
             - "Expeditor: Skip Changelog"
@@ -59,8 +55,7 @@ subscriptions:
       - built_in:build_gem:
           only_if: built_in:bump_version
 
-  # TODO: Uncomment/Modify when ready to promote
-  # - workload: project_promoted:{{agent_id}}:*
-  #   actions:
-  #     - built_in:rollover_changelog
-  #     - built_in:publish_rubygems
+  - workload: project_promoted:{{agent_id}}:*
+    actions:
+      - built_in:rollover_changelog
+      - built_in:publish_rubygems

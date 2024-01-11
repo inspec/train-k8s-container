@@ -1,6 +1,44 @@
+---
+expeditor:
+  cached_folders:
+    - vendor
+  defaults:
+    buildkite:
+      retry:
+        automatic:
+          limit: 1
+      timeout_in_minutes: 30
+
 steps:
-  - label: "A simple echo!"
-    expeditor:
-      executor:
-        docker:
-    command: echo "Hello from train-k8s-container!"
+
+- label: lint-chefstyle
+  command:
+    - /workdir/.expeditor/buildkite/run_linux_tests.sh "rake style"
+  expeditor:
+    executor:
+      docker:
+        image: ruby:3.0
+
+- label: run-specs-ruby-3.0
+  command:
+    - /workdir/.expeditor/buildkite/run_linux_tests.sh "rake spec"
+  expeditor:
+    executor:
+      docker:
+        image: ruby:3.0
+
+- label: run-specs-ruby-3.1
+  command:
+    - /workdir/.expeditor/buildkite/run_linux_tests.sh "rake spec"
+  expeditor:
+    executor:
+      docker:
+        image: ruby:3.1
+
+- label: run-specs-ruby-3.1
+  command:
+    - /workdir/.expeditor/buildkite/run_linux_tests.sh "rake spec"
+  expeditor:
+    executor:
+      docker:
+        image: ruby:3.1
