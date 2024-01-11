@@ -14,7 +14,10 @@ module Train
           connect
         end
 
-        def connect; end
+        # TODO: implement this
+        def connect
+          raise NotImplementedError
+        end
 
         private
 
