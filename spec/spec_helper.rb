@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "train"
 require "train/k8s/container"
 
 RSpec.configure do |config|

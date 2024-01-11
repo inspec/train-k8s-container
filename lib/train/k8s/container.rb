@@ -4,6 +4,7 @@ require_relative "container/version"
 require_relative "container/platform"
 require_relative "container/connection"
 require_relative "container/transport"
+require_relative "container/kubectl_exec_client"
 
 module Train
   module K8s
