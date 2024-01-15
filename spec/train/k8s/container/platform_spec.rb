@@ -1,13 +1,19 @@
 # frozen_string_literal: true
 require_relative "../../../spec_helper"
 
+class TestConnection < Train::Plugins::Transport::BaseConnection
+  include Train::K8s::Container::Platform
+end
+
 RSpec.describe Train::K8s::Container::Platform do
-  it "its platform name should be `k8s_container`" do
-    expect(train.connection.platform.name).to eq(Train::K8s::Container::Platform::PLATFORM_NAME)
+
+  subject { TestConnection.new }
+  it "its platform name should be `k8s-container`" do
+    expect(subject.platform.name).to eq(Train::K8s::Container::Platform::PLATFORM_NAME)
   end
 
-  it "its platform family should be `cloud`" do
-    expect(train.connection.platform.family).to eq("os")
+  it "its platform family should be `os`" do
+    expect(subject.platform.family).to eq("os")
   end
 end
 

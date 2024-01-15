@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Transport for Kubernetes containers for use with Chef InSpec."
   spec.description = "Transport for Kubernetes containers for use with Chef InSpec."
   spec.homepage = "https://github.com/inspec/train-k8s-container"
+  spec.license = "Apache-2.0"
   spec.required_ruby_version = ">= 3.0.3"
 
   spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
@@ -36,5 +37,4 @@ Gem::Specification.new do |spec|
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
-  spec.add_dependency "train", "~> 3.0"
 end
