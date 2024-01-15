@@ -22,6 +22,15 @@ module Train
         private
 
         attr_reader :pod, :container_name, :namespace
+
+        def validate_parameters
+          raise ArgumentError, "Missing Parameter `pod`" unless pod
+          raise ArgumentError, "Missing Parameter `container_name`" unless container_name
+        end
+
+        def run_command_via_connection(cmd, &_data_handler)
+          KubectlExecClient.new(pod: pod, namespace: namespace, container_name: container_name).execute(cmd)
+        end
       end
     end
   end
