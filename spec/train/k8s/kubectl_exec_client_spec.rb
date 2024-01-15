@@ -6,6 +6,7 @@ RSpec.describe Train::K8s::Container::KubectlExecClient do
   let(:pod) { "shell-demo" }
   let(:container_name) { "nginx" }
   let(:namespace) { Train::K8s::Container::KubectlExecClient::DEFAULT_NAMESPACE }
+  let(:shell_op) { Struct.new(:stdout, :stderr, :exitstatus) }
 
   subject { described_class.new(pod: pod, namespace: namespace, container_name: container_name) }
   describe ".instance" do
@@ -17,7 +18,7 @@ RSpec.describe Train::K8s::Container::KubectlExecClient do
   end
 
   describe "#execute" do
-    let(:result) { Train::Extras::CommandResult.new(stdout, stderr, exitstatus) }
+    let(:result) { shell_op.new(stdout, stderr, exitstatus) }
     before do
       allow(Mixlib::ShellOut).to receive(:new).and_return(shell)
       allow(shell).to receive(:run_command).and_return(result)
