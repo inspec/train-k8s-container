@@ -11,12 +11,17 @@ module Train
           @pod = options[:pod] || options[:path]&.gsub("/", "")
           @container_name = options[:container_name]
           @namespace = options[:namespace] || options[:host]
+          validate_parameters
           connect
         end
 
-        # TODO: implement this
         def connect
-          raise NotImplementedError
+          cmd_result = run_command_via_connection("uname")
+          if cmd_result.exit_status > 0
+            raise ConnectionError, cmd_result.stderr
+          else
+            self
+          end
         end
 
         private
