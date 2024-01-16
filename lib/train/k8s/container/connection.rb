@@ -10,10 +10,10 @@ module Train
         # @example k8s-container://default/shell-demo/nginx
         def initialize(options)
           super(options)
-          uri_path = options[:path].gsub(%r{^/}, "")
+          uri_path = options[:path]&.gsub(%r{^/}, "")
           @pod = options[:pod] || uri_path&.split("/")&.first
           @container_name = options[:container_name] || uri_path&.split("/")&.last
-          @namespace = options[:namespace] || options[:host].presence
+          @namespace = options[:namespace] || options[:host]&.presence
           validate_parameters
           connect
         end
