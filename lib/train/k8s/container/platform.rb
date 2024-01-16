@@ -7,7 +7,7 @@ module Train
         PLATFORM_NAME = "k8s-container"
 
         def platform
-          Train::Platforms.name(PLATFORM_NAME).in_family("os")
+          Train::Platforms.name(PLATFORM_NAME).in_family("unix")
           force_platform!(PLATFORM_NAME, release: Train::K8s::Container::VERSION)
         end
       end

@@ -6,11 +6,14 @@ module Train
       class Connection < Train::Plugins::Transport::BaseConnection
         include Train::K8s::Container::Platform
 
+        # URI format: k8s-container://<namespace>/<pod>/<container_name>
+        # @example k8s-container://default/shell-demo/nginx
         def initialize(options)
           super(options)
-          @pod = options[:pod] || options[:path]&.gsub("/", "")
-          @container_name = options[:container_name]
-          @namespace = options[:namespace] || options[:host]
+          uri_path = options[:path]&.gsub(%r{^/}, "")
+          @pod = options[:pod] || uri_path&.split("/")&.first
+          @container_name = options[:container_name] || uri_path&.split("/")&.last
+          @namespace = options[:namespace] || options[:host]&.presence
           validate_parameters
           connect
         end
