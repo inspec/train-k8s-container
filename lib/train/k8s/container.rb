@@ -9,7 +9,8 @@ require_relative "container/kubectl_exec_client"
 module Train
   module K8s
     module Container
-      class Error < StandardError; end
+      class ConnectionError < StandardError
+      end
       # Your code goes here...
     end
   end

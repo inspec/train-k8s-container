@@ -20,7 +20,7 @@ module Train
           instruction = build_instruction(command)
           shell = Mixlib::ShellOut.new(instruction)
           res = shell.run_command
-          Train::Extras::CommandResult.new(res.stdout, res.stderr, res.exit_status)
+          Train::Extras::CommandResult.new(res.stdout, res.stderr, res.exitstatus)
         rescue Errno::ENOENT => _e
           Train::Extras::CommandResult.new("", "", 1)
         end
