@@ -3,15 +3,15 @@ require_relative "../../../spec_helper"
 
 RSpec.describe Train::K8s::Container::Connection do
   let(:options) { { pod: "shell-demo", container_name: "nginx", namespace: "default" } }
-  let(:kube_client) { Train::K8s::Container::KubectlExecClient.new(**options) }
-  let(:struct) { Struct.new(:stdout, :stderr, :exitstatus) }
-  let(:shell_op) { struct.new(stdout, stderr, exitstatus) }
+  let(:kube_client) { double(Train::K8s::Container::KubectlExecClient) }
+  let(:shell_op) { Train::Extras::CommandResult.new(stdout, stderr, exitstatus) }
 
   subject { described_class.new(options) }
   let(:stdout) { "Linux\n" }
   let(:stderr) { "" }
   let(:exitstatus) { 0 }
   before do
+    allow(Train::K8s::Container::KubectlExecClient).to receive(:new).with(**options).and_return(kube_client)
     allow(kube_client).to receive(:execute).with("uname").and_return(shell_op)
   end
 
