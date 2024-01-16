@@ -1,16 +1,17 @@
 # Changelog
 
-<!-- latest_release 1.1.1 -->
-## [v1.1.1](https://github.com/inspec/train-k8s-container/tree/v1.1.1) (2024-01-15)
+<!-- latest_release 1.1.2 -->
+## [v1.1.2](https://github.com/inspec/train-k8s-container/tree/v1.1.2) (2024-01-16)
 
 #### Merged Pull Requests
-- CHEF-7406 specs for transporter [#13](https://github.com/inspec/train-k8s-container/pull/13) ([sathish-progress](https://github.com/sathish-progress))
+- CHEF-7406 connection to container [#14](https://github.com/inspec/train-k8s-container/pull/14) ([sathish-progress](https://github.com/sathish-progress))
 <!-- latest_release -->
 
 <!-- release_rollup -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- CHEF-7406 connection to container [#14](https://github.com/inspec/train-k8s-container/pull/14) ([sathish-progress](https://github.com/sathish-progress)) <!-- 1.1.2 -->
 - CHEF-7406 specs for transporter [#13](https://github.com/inspec/train-k8s-container/pull/13) ([sathish-progress](https://github.com/sathish-progress)) <!-- 1.1.1 -->
 - CHEF-7406 kubectl exec client [#10](https://github.com/inspec/train-k8s-container/pull/10) ([sathish-progress](https://github.com/sathish-progress)) <!-- 1.1.0 -->
 - CHEF-7406 transporter for k8s container [#9](https://github.com/inspec/train-k8s-container/pull/9) ([sathish-progress](https://github.com/sathish-progress)) <!-- 1.0.0 -->
