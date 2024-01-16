@@ -1,8 +1,8 @@
 # train-k8s-container - Train Plugin for connecting to Kubernetes Containers for use with Chef InSpec
 
-* **Project State: Active**
-* **Issues Response SLA: 3 business days**
-* **Pull Request Response SLA: 3 business days**
+* **Project State: Prototyping**
+* **Issues Response SLA: None**
+* **Pull Request Response SLA: None**
 
 For more information on project states and SLAs, see [this documentation](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md).
 
@@ -12,11 +12,32 @@ Train itself has no CLI, nor a sophisticated test harness.  InSpec does have suc
 
 Train plugins may be developed without an InSpec installation.
 
-## To Install this as a User
+## To Install this Plugin
 
-Train plugins are distributed as gems.  You may choose to manage the gem yourself, but if you are an InSpec user, InSPec can handle it for you.
+Train plugins are installed using `inspec plugin install`. Once released, train-k8s-container will be released as a RubyGem, like all train plugins.
 
-You will need InSpec v2.3 or later.
+### During Development
+
+While the project is still in its early phases and the gem is not yet released, you can preview the functionality.
+
+First obtain a git clone of the train-k8s-container repo:
+
+```bash
+$ git clone https://github.com/inspec/train-k8s-container.git
+```
+
+Then use the path form of the plugin installer:
+
+```bash
+$ inspec plugin install path/to/train-k8s-container
+train-k8s-container plugin installed via source path reference, resolved to entry point /Users/wolfe/sandbox/inspec/train-k8s-container/lib/train-k8s-container.rb
+```
+
+This technique allows you to run the plugin from the source in the given directory, so you can run from a branch or work from edits. If you are curious how this works, see ~/.inspec/plugins.json .
+
+### As A Gem
+
+Once train-k8s-container is released as a gem, you can install it by name.
 
 Simply run:
 
@@ -67,6 +88,16 @@ You are currently running on:
     Arch:      unknown
 
 inspec>
+```
+
+## Usage
+
+The intended usage of this plugin is to allow `os`-platform-targeted profiles to run on Kubernetes containers. So, once you have connected, you should be able to run:
+
+```bash
+inspec> describe command("whoami") do
+          its("stdout") { should cmp "alice" }
+        end
 ```
 
 ## Reporting Issues
