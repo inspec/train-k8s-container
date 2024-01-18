@@ -5,7 +5,7 @@ RSpec.describe Train::K8s::Container::KubectlExecClient do
   let(:shell) { double(Mixlib::ShellOut) }
   let(:pod) { "shell-demo" }
   let(:container_name) { "nginx" }
-  let(:namespace) { Train::K8s::Container::KubectlExecClient::DEFAULT_NAMESPACE }
+  let(:namespace) { "default" }
   let(:shell_op) { Struct.new(:stdout, :stderr, :exitstatus) }
 
   subject { described_class.new(pod: pod, namespace: namespace, container_name: container_name) }
