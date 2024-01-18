@@ -13,7 +13,7 @@ module Train
         def initialize(pod:, namespace: nil, container_name: nil)
           @pod = pod
           @container_name = container_name
-          @namespace = namespace || DEFAULT_NAMESPACE
+          @namespace = namespace
         end
 
         def execute(command)
