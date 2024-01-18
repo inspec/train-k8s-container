@@ -2,7 +2,7 @@
 require_relative "../../../spec_helper"
 
 RSpec.describe Train::K8s::Container::Connection do
-  let(:options) { { pod: "shell-demo", container_name: "nginx", namespace: Train::K8s::Container::Connection::DEFAULT_NAMESPACE } }
+  let(:options) { { pod: "shell-demo", container_name: "nginx", namespace: "default" } }
   let(:kube_client) { double(Train::K8s::Container::KubectlExecClient) }
   let(:shell_op) { Train::Extras::CommandResult.new(stdout, stderr, exitstatus) }
 
