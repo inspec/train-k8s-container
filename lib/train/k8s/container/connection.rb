@@ -16,7 +16,7 @@ module Train
           uri_path = options[:path]&.gsub(%r{^/}, "")
           @pod = options[:pod] || uri_path&.split("/")&.first
           @container_name = options[:container_name] || uri_path&.split("/")&.last
-          host = options[:host] unless  options[:host].nil? || options[:host].empty?
+          host = options[:host] unless options[:host].nil? || options[:host].empty?
           @namespace = options[:namespace] || host || DEFAULT_NAMESPACE
           validate_parameters
           connect
