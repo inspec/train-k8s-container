@@ -9,7 +9,7 @@ module Train
         # URI format: k8s-container://<namespace>/<pod>/<container_name>
         # @example k8s-container://default/shell-demo/nginx
 
-        DEFAULT_NAMESPACE = "default".freeze
+        DEFAULT_NAMESPACE = "default"
 
         def initialize(options)
           super(options)
