@@ -14,7 +14,7 @@ module Train
           uri_path = options[:path]&.gsub(%r{^/}, "")
           @pod = options[:pod] || uri_path&.split("/")&.first
           @container_name = options[:container_name] || uri_path&.split("/")&.last
-          host = options[:host] unless options[:host].nil? || options[:host].empty?
+          host = (!options[:host].nil? && !options[:host].empty?) ? options[:host] : nil
           @namespace = options[:namespace] || host || Train::K8s::Container::KubectlExecClient::DEFAULT_NAMESPACE
           validate_parameters
           connect
