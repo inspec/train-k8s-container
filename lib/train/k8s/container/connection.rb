@@ -8,12 +8,16 @@ module Train
 
         # URI format: k8s-container://<namespace>/<pod>/<container_name>
         # @example k8s-container://default/shell-demo/nginx
+
+        DEFAULT_NAMESPACE = "default".freeze
+
         def initialize(options)
           super(options)
           uri_path = options[:path]&.gsub(%r{^/}, "")
           @pod = options[:pod] || uri_path&.split("/")&.first
           @container_name = options[:container_name] || uri_path&.split("/")&.last
-          @namespace = options[:namespace] || options[:host]&.presence
+          host = options[:host] unless options[:host].empty? || options[:host].nil?
+          @namespace = options[:namespace] || host || DEFAULT_NAMESPACE
           validate_parameters
           connect
         end
