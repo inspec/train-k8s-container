@@ -8,6 +8,8 @@ module Train
       class KubectlExecClient
         attr_reader :pod, :container_name, :namespace
 
+        DEFAULT_NAMESPACE = "default".freeze
+
         def initialize(pod:, namespace: nil, container_name: nil)
           @pod = pod
           @container_name = container_name
