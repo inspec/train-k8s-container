@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require "train"
+require "train/file/remote/linux"
 module Train
   module K8s
     module Container
@@ -40,6 +41,10 @@ module Train
 
         def run_command_via_connection(cmd, &_data_handler)
           KubectlExecClient.new(pod: pod, namespace: namespace, container_name: container_name).execute(cmd)
+        end
+
+        def file_via_connection(path, *_args)
+          ::Train::File::Remote::Linux.new(self, path)
         end
       end
     end
