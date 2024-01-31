@@ -46,5 +46,16 @@ RSpec.describe Train::K8s::Container::Connection do
         .with_message(/Error from server/)
     end
   end
+
+  describe "#file" do
+    let(:proc_version) { "Linux version 6.5.11-linuxkit (root@buildkitsandbox) (gcc (Alpine 12.2.1_git20220924-r10) 12.2.1 20220924, GNU ld (GNU Binutils) 2.40) #1 SMP PREEMPT Wed Dec  6 17:08:31 UTC 2023\n" }
+    let(:stdout) { proc_version }
+    before do
+      allow(kube_client).to receive(:execute).with("cat /proc/version || echo -n").and_return(shell_op)
+    end
+    it "executes a file connection" do
+      expect(subject.file("/proc/version").content).to eq(stdout)
+    end
+  end
 end
 

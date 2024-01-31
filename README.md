@@ -69,8 +69,8 @@ $ inspec detect -t k8s-container://default/shell-demo/nginx
  ────────────────────────────── Platform Details ──────────────────────────────
 
 Name:      k8s-container
-Families:  os
-Release:   1.1.1
+Families:  unix, os
+Release:   1.2.1
 Arch:      unknown
 ```
 
@@ -83,8 +83,8 @@ To find out how to use it, type: help
 You are currently running on:
 
     Name:      k8s-container
-    Families:  os
-    Release:   1.1.1
+    Families:  unix, os
+    Release:   1.2.1
     Arch:      unknown
 
 inspec>
@@ -94,11 +94,21 @@ inspec>
 
 The intended usage of this plugin is to allow `os`-platform-targeted profiles to run on Kubernetes containers. So, once you have connected, you should be able to run:
 
+#### example usage of [Inspec command resource](https://docs.chef.io/inspec/resources/command/)
 ```bash
 inspec> describe command("whoami") do
           its("stdout") { should cmp "alice" }
         end
 ```
+
+#### example usage of [Inspec file resource](https://docs.chef.io/inspec/resources/file/)
+```bash
+inspec> describe file('/proc/version') do
+           its('content') { should cmp "Linux version 6.5.11-linuxkit (root@buildkitsandbox) (gcc (Alpine 12.2.1_git20220924-r10) 12.2.1 20220924, GNU ld (GNU Binutils) 2.40) #1 SMP PREEMPT Wed Dec  6 17:08:31 UTC 2023\n" }
+        end
+```
+
+
 
 ## Reporting Issues
 

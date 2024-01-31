@@ -13,8 +13,7 @@ RSpec.describe Train::K8s::Container::Platform do
   end
 
   it "its platform family should be `os`" do
-    # TODO - this fails and we don't understand it yet
-    skip { expect(subject.platform.family).to eq("os") }
+    expect(subject.platform.family).to eq("unix")
   end
 end
 
