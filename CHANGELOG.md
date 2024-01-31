@@ -1,16 +1,17 @@
 # Changelog
 
-<!-- latest_release 1.2.1 -->
-## [v1.2.1](https://github.com/inspec/train-k8s-container/tree/v1.2.1) (2024-01-18)
+<!-- latest_release 1.3.0 -->
+## [v1.3.0](https://github.com/inspec/train-k8s-container/tree/v1.3.0) (2024-01-31)
 
 #### Merged Pull Requests
-- Fix for undefined method presence [#17](https://github.com/inspec/train-k8s-container/pull/17) ([Vasu1105](https://github.com/Vasu1105))
+- add support to file connection [#19](https://github.com/inspec/train-k8s-container/pull/19) ([sathish-progress](https://github.com/sathish-progress))
 <!-- latest_release -->
 
 <!-- release_rollup -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- add support to file connection [#19](https://github.com/inspec/train-k8s-container/pull/19) ([sathish-progress](https://github.com/sathish-progress)) <!-- 1.3.0 -->
 - Fix for undefined method presence [#17](https://github.com/inspec/train-k8s-container/pull/17) ([Vasu1105](https://github.com/Vasu1105)) <!-- 1.2.1 -->
 - CHEF-7406 update README and inspec compatibility [#15](https://github.com/inspec/train-k8s-container/pull/15) ([sathish-progress](https://github.com/sathish-progress)) <!-- 1.2.0 -->
 - CHEF-7406 connection to container [#14](https://github.com/inspec/train-k8s-container/pull/14) ([sathish-progress](https://github.com/sathish-progress)) <!-- 1.1.2 -->
