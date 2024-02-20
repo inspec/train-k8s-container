@@ -1,10 +1,11 @@
 # frozen_string_literal: true
-
-require_relative "lib/train/k8s/container/version"
+lib = File.expand_path("lib", __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "train-k8s-container/version"
 
 Gem::Specification.new do |spec|
   spec.name = "train-k8s-container"
-  spec.version = Train::K8s::Container::VERSION
+  spec.version = Train::K8sContainer::VERSION
   spec.authors = ["Chef InSpec Team"]
   spec.email = ["inspec@progress.com"]
 
@@ -27,11 +28,11 @@ Gem::Specification.new do |spec|
       (File.expand_path(f) == __FILE__) || f.start_with?(*%w{bin/ test/ spec/ features/ .git})
     end
   end
-  spec.bindir = "exe"
+  #spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "train", "~> 3.0"
+  # spec.add_dependency "train", "~> 3.0"
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
 
