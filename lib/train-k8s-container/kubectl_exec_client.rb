@@ -42,6 +42,6 @@ module TrainPlugins
           arr << command
         end.join("\s")
       end
-   end
+    end
   end
 end

@@ -1,11 +1,12 @@
 # frozen_string_literal: true
-require_relative "../../spec_helper"
+require_relative "../spec_helper"
+require "train-k8s-container/kubectl_exec_client"
 
-RSpec.describe Train::K8s::Container::KubectlExecClient do
+RSpec.describe TrainPlugins::K8sContainer::KubectlExecClient do
   let(:shell) { double(Mixlib::ShellOut) }
   let(:pod) { "shell-demo" }
   let(:container_name) { "nginx" }
-  let(:namespace) { Train::K8s::Container::KubectlExecClient::DEFAULT_NAMESPACE }
+  let(:namespace) { TrainPlugins::K8sContainer::KubectlExecClient::DEFAULT_NAMESPACE }
   let(:shell_op) { Struct.new(:stdout, :stderr, :exitstatus) }
 
   subject { described_class.new(pod: pod, namespace: namespace, container_name: container_name) }
