@@ -5,7 +5,7 @@ require "train-k8s-container/version"
 
 Gem::Specification.new do |spec|
   spec.name = "train-k8s-container"
-  spec.version = Train::K8sContainer::VERSION
+  spec.version = TrainPlugins::K8sContainer::VERSION
   spec.authors = ["Chef InSpec Team"]
   spec.email = ["inspec@progress.com"]
 
