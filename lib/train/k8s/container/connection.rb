@@ -29,6 +29,10 @@ module Train
           end
         end
 
+        def unique_identifier
+          uuid = @container_name
+        end
+
         private
 
         attr_reader :pod, :container_name, :namespace
