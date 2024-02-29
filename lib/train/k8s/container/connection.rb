@@ -30,7 +30,7 @@ module Train
         end
 
         def unique_identifier
-          uuid = @container_name
+          @unique_identifier ||= "#{@container_name}_#{@pod}"
         end
 
         private
