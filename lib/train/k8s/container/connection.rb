@@ -5,7 +5,6 @@ module Train
   module K8s
     module Container
       class Connection < Train::Plugins::Transport::BaseConnection
-        include Train::K8s::Container::Platform
 
         # URI format: k8s-container://<namespace>/<pod>/<container_name>
         # @example k8s-container://default/shell-demo/nginx
@@ -28,6 +27,10 @@ module Train
           else
             self
           end
+        end
+
+        def unique_identifier
+          @unique_identifier ||= "#{@container_name}_#{@pod}"
         end
 
         private

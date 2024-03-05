@@ -40,8 +40,12 @@ module Train
               arr << container_name
             end
             arr << "--"
-            arr << command
+            arr << sh_run_command(command)
           end.join("\s")
+        end
+
+        def sh_run_command(command)
+          %W{/bin/sh -c "#{command}"}
         end
       end
     end
