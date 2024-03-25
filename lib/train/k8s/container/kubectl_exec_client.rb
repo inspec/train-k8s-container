@@ -40,7 +40,7 @@ module Train
               arr << container_name
             end
             arr << "--"
-            arr << sh_run_command(command)
+            arr << "/bin/sh"
           end.join("\s")
         end
 
