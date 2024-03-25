@@ -27,7 +27,44 @@ module Train
 
         private
 
-        def build_instruction(command)
+        attr_reader :session
+
+        def ensure_session_open
+          start_session unless session && !session.closed?
+        end
+
+        def stream(command)
+          session.puts("#{command}; echo KUBECTL_EXEC_STATUS:$?; echo KUBECTL_EXEC_DONE")
+          output = ""
+          exit_status = nil
+          while (line = session.gets)
+            if line.start_with?("KUBECTL_EXEC_STATUS:")
+              exit_status = line.chomp.split(":")[1].to_i
+            elsif line.chomp == "KUBECTL_EXEC_DONE"
+              break
+            else
+              output += line
+            end
+          end
+          if exit_status.nil?
+            puts "Error: Failed to retrieve exit status."
+          else
+            stdout, stderr = if exit_status == 0
+                               [output, ""]
+                             else
+                               ["", output]
+                             end
+          end
+          Train::Extras::CommandResult.new(stdout, stderr, exit_status)
+        end
+
+        def start_session
+          @session = IO.popen(exec_command, "r+")
+          # TODO: check if kubectl connection is established
+          raise "Failed to open connection" unless @session
+        end
+
+        def exec_command
           ["kubectl exec"].tap do |arr|
             arr << "--stdin"
             arr << pod if pod
