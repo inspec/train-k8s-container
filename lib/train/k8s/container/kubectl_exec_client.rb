@@ -17,10 +17,8 @@ module Train
         end
 
         def execute(command)
-          instruction = build_instruction(command)
-          shell = Mixlib::ShellOut.new(instruction)
-          res = shell.run_command
-          Train::Extras::CommandResult.new(res.stdout, res.stderr, res.exitstatus)
+          ensure_session_open
+          stream(command)
         rescue Errno::ENOENT => _e
           Train::Extras::CommandResult.new("", "", 1)
         end
