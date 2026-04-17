@@ -1,9 +1,5 @@
 # train-k8s-container - Train Plugin for connecting to Kubernetes Containers for use with Chef InSpec
 
-* **Project State: Prototyping**
-* **Issues Response SLA: None**
-* **Pull Request Response SLA: None**
-
 For more information on project states and SLAs, see [this documentation](https://github.com/chef/chef-oss-practices/blob/master/repo-management/repo-states.md).
 
 This plugin allows applications that rely on Train to communicate with the Kubernetes API.  For example, InSpec uses this to perform compliance checks against Kubernetes Containers.
